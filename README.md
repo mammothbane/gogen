@@ -1,4 +1,5 @@
-# gogen
+# gogen [![Build Status](https://travis-ci.org/mammothbane/gogen.svg?branch=master)](https://travis-ci.org/mammothbane/gogen) [![Go report](http://goreportcard.com/badge/mammothbane/gogen)](http://goreportcard.com/report/mammothbane/gogen)
+
 
 	go get github.com/mammothbane/gogen
 
