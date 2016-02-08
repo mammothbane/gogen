@@ -38,7 +38,7 @@ func main() {
 	if *help || flag.NArg() < 2 {
 		me := filepath.Base(os.Args[0])
 
-		fmt.Fprintf(os.Stderr, "%s usage:\n\t%s [-q] [-h] [--no-gi] -o OUT_DIR IN_PKG INTYPE_1=OUTTYPE_1 INTYPE_2=OUTTYPE_2\n\nFor more usage details see https://github.com/mammothbane/gogen/blob/master/README.md\n\nFlags:\n", me, me)
+		fmt.Fprintf(os.Stderr, "%s usage:\n\t%s [-q] [-h] [--no-gi] -o OUT_DIR IN_PKG [InType=OutType ...]\n\nFor more usage details see https://github.com/mammothbane/gogen/blob/master/README.md\n\nFlags:\n", me, me)
 		flag.PrintDefaults()
 		os.Exit(2)
 	}
