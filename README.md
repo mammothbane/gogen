@@ -1,13 +1,13 @@
-# gogen [![Build Status](https://travis-ci.org/mammothbane/gogen.svg?branch=master)](https://travis-ci.org/mammothbane/gogen) [![Go report](http://goreportcard.com/badge/mammothbane/gogen)](http://goreportcard.com/report/mammothbane/gogen)
+# gogen [![Build Status](https://travis-ci.org/rastech/gogen.svg?branch=master)](https://travis-ci.org/rastech/gogen) [![Go report](http://goreportcard.com/badge/rastech/gogen)](http://goreportcard.com/report/rastech/gogen)
 
-	go get github.com/mammothbane/gogen
+	go get github.com/rastech/gogen
 
 `gogen` is a templating generics preprocessor for Go. It allows you to write pseudo-generic code like this: 
 
 ```go
 package list
 
-import "github.com/mammothbane/gogen/generics”
+import "github.com/rastech/gogen/generics”
 
 type T generic.Generic
 
@@ -26,7 +26,7 @@ A new package `intlist` is created for us in the current directory with `list.go
 ```go
 package intlist
 
-import "github.com/mammothbane/gogen/generic"
+import "github.com/rastech/gogen/generic"
 
 type _ generic.Generic
 
@@ -62,7 +62,7 @@ As you're writing and maintaining your generic package, it may become tedious to
 
 to any source file in your package, and whenever you run `go generate` in your package directory (or `go generate ./...` in a parent), your package will be (re)generated. It may make sense to put this in a `generate.go` file or similar with `// +build ignore`.
 
-You may also want to add `gogen` to your build process (`go get github.com/mammothbane/gogen && go generate ./...`) rather than committing the generated files to source control. 
+You may also want to add `gogen` to your build process (`go get github.com/rastech/gogen && go generate ./...`) rather than committing the generated files to source control. 
 
 By default, `gogen` creates a `.gitignore` in the generated package set to ignore everything. To disable this behavior, pass the `--no-gi` flag to `gogen`.
 
@@ -70,8 +70,8 @@ By default, `gogen` creates a `.gitignore` in the generated package set to ignor
 Feel free to look at `main.go` for the bulk of the implementation. At the basic level, `gogen`:
 
 - loads and type-checks the generic package **G**
-- loads and type-checks `github.com/mammothbane/gogen/generic`
-- gets the type **T** of `generic.Generic` from `github.com/mammothbane/gogen/generic`
+- loads and type-checks `github.com/rastech/gogen/generic`
+- gets the type **T** of `generic.Generic` from `github.com/rastech/gogen/generic`
 - searches the file ASTs in **G** for type specs of type **T**, eliding those that match the commandline KV pairs with `_`
 - searches the file ASTs in **G** for identifiers matching the KV pairs and replaces them with concrete types
 - rewrites the package names for all file ASTs in **G**

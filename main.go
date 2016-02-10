@@ -16,7 +16,7 @@ import (
 	"golang.org/x/tools/go/loader"
 )
 
-const genericsPackageName = "github.com/mammothbane/gogen/generic"
+const genericsPackageName = "github.com/rastech/gogen/generic"
 
 var (
 	quiet   bool
@@ -38,7 +38,7 @@ func main() {
 	if *help || flag.NArg() < 2 {
 		me := filepath.Base(os.Args[0])
 
-		fmt.Fprintf(os.Stderr, "%s usage:\n\t%s [-q] [-h] [--no-gi] -o OUT_DIR IN_PKG [InType=OutType ...]\n\nFor more usage details see https://github.com/mammothbane/gogen/blob/master/README.md\n\nFlags:\n", me, me)
+		fmt.Fprintf(os.Stderr, "%s usage:\n\t%s [-q] [-h] [--no-gi] -o OUT_DIR IN_PKG [InType=OutType ...]\n\nFor more usage details see https://github.com/rastech/gogen/blob/master/README.md\n\nFlags:\n", me, me)
 		flag.PrintDefaults()
 		os.Exit(2)
 	}
