@@ -115,7 +115,7 @@ func main() {
 		handle(err)
 
 		fname := filepath.Join(tdir, filepath.Base(program.Fset.Position(fileAst.Pos()).Filename))
-		err = ioutil.WriteFile(fname, b, 0744)
+		err = ioutil.WriteFile(fname, b, 0644)
 		handle(err)
 	}
 
@@ -127,7 +127,7 @@ func main() {
 
 	if !*noGi {
 		vlog("Creating .gitignore...")
-		ioutil.WriteFile(filepath.Join(tdir, ".gitignore"), []byte("*\n"), 0744)
+		ioutil.WriteFile(filepath.Join(tdir, ".gitignore"), []byte("*\n"), 0644)
 	} else {
 		vlog("Skipping .gitignore creation...")
 	}
