@@ -82,6 +82,9 @@ Feel free to look at `main.go` for the bulk of the implementation. At the basic 
 `gogen` only supports Go builtin types at the moment; i.e. this is not possible (but it will be soon):
 
 	gogen -o myimpl github.com/path/to/pkg T=github.com/path/to/my/type:Type
+	
+In fact, due to an unresolved issue with the type checker, only scalar types are supported; i.e. `[]int`, `map[int]string`, etc. are unfortunately not available.
+This is a top priority feature for the near future.
 
 ### Zeroes and Equality
 Since the underlying type of `generic.Generic` is `interface{}` and `gogen` does not make any assumptions 
@@ -106,9 +109,12 @@ func fn(in T) {
 }
 ```
 
-But this fails for `T=[]int`,`T=map[int]string`, etc. The more this functionality can be factored out, the better, but `reflect.Equal` and `reflect.DeepEqual` are also available if needed. 
+But this fails for `T=[]int`,`T=map[int]string`, etc. The more these comparisons can be factored out into non-generic code, the better, 
+but `reflect.DeepEqual` is also available if needed. Automatic replacement of these formations may also be available in the future.
 
-In his `gengen` overview, joeshaw offers a nice solution using `Equaler` interfaces, but `gogen` does not support this pattern, because `generic.Generic` (by definition) does not implement any interfaces, and `gogen` will therefore fail on its first typecheck (before substitution). Support for something of this nature may be added in the future.
+NB: In his `gengen` overview, joeshaw offers a nice solution using `Equaler` interfaces, but `gogen` does not support this pattern, because 
+`generic.Generic` (by definition) does not implement any interfaces, and `gogen` will therefore fail on its first typecheck (before substitution). 
+Support for something of this nature may be added in the future.
 
 ## Credits
 This tool started out as a fork of [joeshaw's `gengen`](https://github.com/joeshaw/gengen) with a few tweaks and fixes and ended up as a complete rewrite. Rather than manual AST loading and walking, `gogen` uses the [`loader` package](https://godoc.org/golang.org/x/tools/go/loader) and [`ast.Walk`](https://golang.org/pkg/go/ast/#Walk) to substitute and type-check references to generic types.
