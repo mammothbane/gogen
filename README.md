@@ -1,4 +1,4 @@
-# gogen [![Build Status](https://travis-ci.org/rastech/gogen.svg?branch=master)](https://travis-ci.org/rastech/gogen) [![Go report](http://goreportcard.com/badge/rastech/gogen)](http://goreportcard.com/report/rastech/gogen)
+# gogen [![Build Status](https://circleci.com/gh/rastech/gogen.svg?style=svg)](https://circleci.com/gh/rastech/gogen) [![Go report](http://goreportcard.com/badge/rastech/gogen)](http://goreportcard.com/report/rastech/gogen)
 
 	go get github.com/rastech/gogen
 
